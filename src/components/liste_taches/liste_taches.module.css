@@ -1,0 +1,32 @@
+.button {
+    background-color: rgb(92, 127, 233);
+    border-radius: 5px;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.button:hover {
+    background-color: rgb(130, 161, 255);
+}
+.tache {
+    border: 1px solid rgb(97, 125, 158);
+    background-color: rgb(29, 31, 37);
+    padding: 10px;
+    text-align: left;
+    border-radius: 5px;
+    width: 35%;
+    margin: auto;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-around;
+}
+
