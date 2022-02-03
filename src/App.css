@@ -1,18 +1,29 @@
 .App {
   text-align: center;
 }
-body{
+body {
   background-color: #282c34;
-  color:antiquewhite;
+  color: antiquewhite;
 }
-ul{
+h1 {
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  border: 1px solid white;
+  width: 30%;
+  margin: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  padding: 15px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+ul {
   padding: 0;
 }
-hr{
-  width:80%;
-  margin:auto;
-  margin-top:30px;
-  margin-bottom:30px;
+hr {
+  width: 80%;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 footer {
   padding-top: 150px;
@@ -53,4 +64,10 @@ footer {
   to {
     transform: rotate(360deg);
   }
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }

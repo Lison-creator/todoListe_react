@@ -1,6 +1,7 @@
 import style from "./ajouter_tache.module.css";
 import { useState } from 'react';
-
+import classNames from "classnames";
+import { nanoid } from "nanoid";
 
 const Ajout_tache_formulaire = (props) => {
 
@@ -10,29 +11,40 @@ const Ajout_tache_formulaire = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
         const data = {
+            id: nanoid(),
             nom,
             description,
-            priorite
+            priorite,
+            isFinished : false
         }
+        /* Le but ==> prévenir le parent (l'app) quand on fait quelque chose */
+
         console.log("Ajouter une tache");
+        props.onAjoutTache(data);
+
 
         handleResetForm();
-        
+
         /* Priorité: if sur la variable priorité
         Aussi: si le submit est onclick; gérer l'évènement OnClick sur le submit. */
 
     }
+
+    /* Facultatif: bouton reset du formulaire */
+
     const handleResetForm = (e) => {
 
-            setNom('');
-            setDescription('');
-            setPriorite('normal');
+        setNom('');
+        setDescription('');
+        setPriorite('normal');
 
-        }
+    }
     return (
         <>
-            <h1>Ajouter une tâche</h1>
+        <div className={style.ajouterTacheBloc}>
+            <h2>Ajouter une tâche</h2>
             <form className={style.myForm}>
                 <div>
                     {/* Nom */}
@@ -63,10 +75,16 @@ const Ajout_tache_formulaire = (props) => {
                     <input onClick={handleSubmit} className={style.button} type="submit" value="Ajouter" />
                 </div>
             </form>
+        </div>
+            
 
         </>);
 };
 
 
+Ajout_tache_formulaire.defaultProps = {
+    onAjoutTache: () => { } /* NOOP */  
+}
 
 export default Ajout_tache_formulaire;
+

@@ -1,9 +1,12 @@
+.ajouterTacheBloc{
+    margin-left:15px;
+    margin-right:15px;
+}
 .myForm {
     border: 1px solid rgb(97, 125, 158);
     background-color: rgb(29, 31, 37);
     padding: 10px;
     border-radius: 5px;
-    width: 35%;
     margin: auto;
     margin-bottom: 10px;
    

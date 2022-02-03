@@ -22,11 +22,19 @@
     padding: 10px;
     text-align: left;
     border-radius: 5px;
-    width: 35%;
     margin: auto;
     margin-bottom: 10px;
     flex-wrap: wrap;
     display: flex;
     justify-content: space-around;
+}
+.terminer {
+    background-color: rgb(17, 17, 24);
+    border: 2px dotted rgb(97, 125, 158);
+
+}
+.priorite{
+    color:brown;
+    font-weight:bold;
 }
 
