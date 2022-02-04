@@ -16,6 +16,12 @@
 .button:hover {
     background-color: rgb(130, 161, 255);
 }
+
+.button:disabled {
+    background-color: rgb(79, 62, 88);
+    color:rgb(135, 107, 151);
+    cursor: no-drop;
+}
 .tache {
     border: 1px solid rgb(97, 125, 158);
     background-color: rgb(29, 31, 37);
@@ -29,12 +35,12 @@
     justify-content: space-around;
 }
 .terminer {
-    background-color: rgb(17, 17, 24);
+    background-color: rgb(37, 37, 49);
     border: 2px dotted rgb(97, 125, 158);
+    color:rgb(68, 67, 88);
 
 }
 .priorite{
     color:brown;
     font-weight:bold;
 }
-

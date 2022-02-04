@@ -25,18 +25,24 @@ function App() {
     setListeTaches(l => l.concat(nouvelleTache));
   }
 
-  const handleTerminer = (props) => {
-    /* //TODO Ecrire ce qu'il se passe quand une tache est terminée = supprimer le bouton */
+  const handleTerminer = (thisTache) => {
 
-    /* Le style change: */
-    props.isFinished = true;
+    /* On passe par la fonction .map pour copier la liste en objet React et agir dessus*/
+
+    /* l => l.map : "l" = la liste entière d'éléments */
+    /* task => task.id  === thisTache.id ? {...task, isFinished : true} : task : On applique la fonction map avec une condition: on exclut la ligne de la liste si son id est égal à celui sur lequel on a cliqué, et on donne à isFinished la valeur "true". Sinon (: task) la ligne (task) reste pareil */
+
+    setListeTaches(l => l.map(task => task.id === thisTache.id ? {...task, isFinished : true} : task))
+
+  
+   /*  setListeTaches(l => l.concat(nouvelleTache)); */
     console.log("évènement 'Terminer' ");
   }
 
   const handleSupprimer = (thisTache) => {
-    /* //TODO Ecrire ce qu'il se passe quand une tache est supprimée = supprimer de la liste */
+    /*  Ecrire ce qu'il se passe quand une tache est supprimée = supprimer de la liste */
 
-    setListeTaches(l => l.pop(thisTache));
+    setListeTaches(l => l.filter(task => task.id !== thisTache.id ));
     console.log("évènement 'Supprimer' ");
 
   }

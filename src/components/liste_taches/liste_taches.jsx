@@ -6,7 +6,8 @@ import classNames from "classnames";
 
 
 //On décompose l'objet JS "tache" pour qu'il soit plus simple à afficher
-const Liste_taches_composant_Item = ({ nom, description, priorite, isFinished }) => {
+const Liste_taches_composant_Item = ({ id, nom, description, priorite, isFinished, onSupprimerTache, onTerminerTache }) => {
+/* onSupprimerTache doit passer en paramètre car le destructuring ne permet pas de récupérer les propos */
 
     /* On applique ce style si la fonction "handleTerminer" est lancée */
     const styleTerminer = classNames({
@@ -18,16 +19,31 @@ const Liste_taches_composant_Item = ({ nom, description, priorite, isFinished })
         [style.priorite]: priorite === "urgent"
     })
 
-    const handleTerminer = (props) => {
+    const handleTerminer = () => {
+        const data = {
+            id,
+            nom,
+            description,
+            priorite,
+            isFinished
+        }
 
-        props.onTerminerTache();
+        onTerminerTache(data);
     }
-    const handleSupprimer = (props) => {
+    const handleSupprimer = () => {
 
-        props.onSupprimerTache()
+        const data = {
+            id,
+            nom,
+            description,
+            priorite,
+            isFinished
+        }
+
+        onSupprimerTache(data)
     }
 
-    /* Faire en sorte que le log soit dans l'app, mettre les 2 event dans l'app */
+    /* Affichage d'une tache : */
 
 
     return (
@@ -42,7 +58,7 @@ const Liste_taches_composant_Item = ({ nom, description, priorite, isFinished })
 
 
             <div className={style.flex}>
-                <button className={style.button} onClick={handleTerminer} >Terminer</button>
+                <button className={style.button} onClick={handleTerminer} disabled = {isFinished} >Terminer</button>
                 <button className={style.button} onClick={handleSupprimer}>Supprimer</button>
             </div>
         </div >
@@ -56,7 +72,9 @@ const Liste_taches_composant = (props) => {
     /* Conversion des données vers des composants React avec la fonction .map de js (renvoie un tableau d'éléments) */
     const tachesJSX = props.tache.map(
 
-        tache => <Liste_taches_composant_Item {...tache} key={tache.id} />
+        tache => <Liste_taches_composant_Item {...tache} key={tache.id}
+                    onSupprimerTache={props.onSupprimerTache} onTerminerTache={props.onTerminerTache}/>
+                    /* On est obligé de renvoyer le composant à son parent, on ne peut pas renvoyer à l'App directement (grand parent) */
     );
 
     console.log(tachesJSX);

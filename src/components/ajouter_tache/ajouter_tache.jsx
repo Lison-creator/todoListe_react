@@ -52,7 +52,7 @@ const Ajout_tache_formulaire = (props) => {
                         <label htmlFor="nom">Nom de la tâche</label>
 
                         {/* On cherche à lier le State et le formulaire de sorte que l'html modifie le State */}
-                        <input type="text" id="nom" onChange={(e) => setNom(e.target.value)} value={nom} />
+                        <input type="text" id="nom" required onChange={(e) => setNom(e.target.value)} value={nom} />
                     </div>
 
                     {/* Description */}
